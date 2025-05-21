@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-gdp_per_worker = [ 
+gdp_per_worker = [ #data for histogram
     139054.84, 149734.53, 109288.54, 125959.58, 105513.48,
     108618.67, 161430.35, 130445.52, 151336.56, 155698.46,
     115580.11, 123660.61, 125564.36, 105291.61, 139067.20,
@@ -17,8 +17,14 @@ gdp_per_worker = [
 
 plt.hist(gdp_per_worker, bins = 7, edgecolor = 'black', color = 'skyblue') #7 histogram bins
 
-plt.title('Nominal GDP Per Worker in Canada and the United States of America')
-plt.xlabel('GDP Per Worker ($USD)')
-plt.ylabel('Number of States/Provinces')
+plt.title( 
+    'Nominal GDP Per Worker in Canada and the United States of America',
+    fontdict = {'fontsize': 13, 'fontweight': 'bold', 'family': 'Georgia'}
+    )
+plt.xlabel('GDP Per Worker ($USD)', fontsize = 12, fontweight = 'medium', family = 'Georgia') #X and Y axis
+plt.ylabel('Number of States/Provinces', fontsize = 12, fontweight = 'medium', family = 'Georgia')
+
+plt.xticks(fontname = "Georgia", fontsize = 10) #Adjust tick font and size
+plt.yticks(fontname = "Georgia", fontsize = 10)
 
 plt.show()
