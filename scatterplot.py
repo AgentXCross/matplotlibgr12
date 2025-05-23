@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 plt.figure(figsize = (8, 6)) #Size of window
 
@@ -26,11 +27,17 @@ workforce_in_stem = [ #data set #2 for x-variable
     10.50, 9.70, 10.50, 10.60, 12.10, 14.00, 14.90, 9.20, 10.70, 7.80
 ]
 
+#Line of Best Fit
+slope, intercept = np.polyfit(workforce_in_stem, gdp_per_worker, 1) #x-var, y-var, degree 1 to return the slope and intercept of LOBF
+x_fit = sorted(workforce_in_stem) #Sorted list of x-var
+y_fit = [slope * val + intercept for val in x_fit] #Gets the corresponding y-value for every x on the line of best fit. MatPlotLib will connect all of them
+
+#Scatter Plot
 y_ticks = [75000, 90000, 105000, 120000, 135000, 150000, 165000, 180000]
 x_ticks = [6, 8, 10, 12, 14, 16, 18] #List for x-axis and y-axis ticks on scatterplot
 
-plt.scatter(workforce_in_stem, gdp_per_worker) #Create scatter plot with workforce as x and gdp as y
-plt.xlabel("%Workforce in STEM",
+plt.scatter(workforce_in_stem, gdp_per_worker, color = 'darkturquoise', label = 'Data Points') #Create scatter plot with workforce as x and gdp as y
+plt.xlabel("% Workforce in STEM",
         fontdict = {'fontsize': 12, 'fontweight': 'medium', 'family': 'Georgia'}) 
 plt.ylabel("GDP per Worker ($USD)",
         fontdict = {'fontsize': 12, 'fontweight': 'medium', 'family': 'Georgia'})
@@ -39,5 +46,11 @@ plt.title("GDP per Worker VS % STEM Workforce in U.S. States and Canadian Provin
 
 plt.xticks(x_ticks, fontname = 'Georgia', fontsize = 10) #Set ticks
 plt.yticks(y_ticks, fontname = 'Georgia', fontsize = 10)
+
+#Plot the line of best fit
+plt.plot(x_fit, y_fit, color = 'crimson', linewidth = 2, label = 'Line of Best Fit')
+
+#Create a legend for the 2 plots (Line of best fit and scatter plot)
+plt.legend(prop = {'family': 'Georgia', 'size': 10})
 
 plt.show()
