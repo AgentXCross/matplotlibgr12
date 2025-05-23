@@ -46,8 +46,8 @@ ax.scatter(
     workforce_in_stem,   #X axis
     gdp_per_worker,      #Y axis
     urbanization_rate,   #Z axis
-    color = 'deeppink', #Dot color
-    s = 40,              #Dot size
+    color = 'deeppink',  #Dot color
+    s = 45,              #Dot size
     edgecolor = 'crimson'  
 )
 
