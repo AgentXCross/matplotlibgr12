@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D 
 
 gdp_per_worker = [ #data set variable 1
     139054.84, 149734.53, 109288.54, 125959.58, 105513.48,
@@ -35,14 +34,19 @@ urbanization_rate = [ #data set variable 3
 ]
 
 #Create a figure with three-dimensional axes
-fig = plt.figure(figsize = (10, 7))
+fig = plt.figure(figsize = (12, 8))
 ax = fig.add_subplot(111, projection = '3d')
+
+#3D Scatter Plot tick values
+y_ticks = [75000, 90000, 105000, 120000, 135000, 150000, 165000, 180000]
+x_ticks = [6, 8, 10, 12, 14, 16, 18]
+z_ticks = [35, 44, 53, 62, 71, 80, 89, 98]
 
 ax.scatter(
     workforce_in_stem,   #X axis
     gdp_per_worker,      #Y axis
     urbanization_rate,   #Z axis
-    color = 'teal',      #Dot color
+    color = 'deepskyblue', #Dot color
     s = 40,              #Dot size
     edgecolor = 'black'  
 )
@@ -53,6 +57,16 @@ ax.set_ylabel('GDP per Worker ($USD)', fontsize = 10, fontname = 'Georgia')
 ax.set_zlabel('Urbanization Rate (%)', fontsize = 10, fontname = 'Georgia')
 ax.set_title('GDP Per Worker VS % STEM Workforce vs % Urbanization of U.S. States and CAN Provinces',
     fontsize = 12, fontname = 'Georgia', fontweight = 'bold')
+
+#Set ticks and adjust font
+ax.set_xticks(x_ticks)
+ax.set_xticklabels([str(x) for x in x_ticks], fontname = 'Georgia', fontsize = 10)
+
+ax.set_yticks(y_ticks)
+ax.set_yticklabels([str(y) for y in y_ticks], fontname = 'Georgia', fontsize = 10)  
+
+ax.set_zticks(z_ticks)
+ax.set_zticklabels([str(z) for z in z_ticks], fontname = 'Georgia', fontsize = 10)
 
 plt.tight_layout() #Adjusts spacing
 plt.show()
