@@ -37,10 +37,10 @@ for label in ax.get_yticklabels():
     label.set_fontname('Georgia')
 
 #Plot functions on the ax
-ax.plot(x_trig, y_sin, color = 'red', linewidth = 3, alpha = 0.8, label = 'f(x) = sin(x)')           #y = sin(x), adjusted linewidth and opacity
-ax.plot(x_trig, y_cos, color = 'gold', linewidth = 3, alpha = 0.8, label = 'f(x) = cos(x)')                 #y = cos(x)
-ax.plot(x_ln, y_ln, color = 'limegreen', linewidth = 3, alpha = 0.8, label = 'f(x) = ln(x)')             #y = ln(x)
-ax.plot(x_e, y_e, color = 'dodgerblue', linewidth = 3, alpha = 0.8, label = 'f(x) = e^x')                  #y = e^(x)
+ax.plot(x_trig, y_sin, color = 'red', linewidth = 3, alpha = 0.8, label = 'f(x) = sin(x)')              #y = sin(x), adjusted linewidth and opacity
+ax.plot(x_trig, y_cos, color = 'gold', linewidth = 3, alpha = 0.8, label = 'f(x) = cos(x)')             #y = cos(x)
+ax.plot(x_ln, y_ln, color = 'limegreen', linewidth = 3, alpha = 0.8, label = 'f(x) = ln(x)')            #y = ln(x)
+ax.plot(x_e, y_e, color = 'dodgerblue', linewidth = 3, alpha = 0.8, label = 'f(x) = e^x')               #y = e^(x)
 
 #Legend for functions
 ax.legend(loc = 'upper left', fontsize = 10, frameon = False, prop = {'family': 'Georgia'})
