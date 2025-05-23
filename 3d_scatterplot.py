@@ -46,16 +46,16 @@ ax.scatter(
     workforce_in_stem,   #X axis
     gdp_per_worker,      #Y axis
     urbanization_rate,   #Z axis
-    color = 'deepskyblue', #Dot color
+    color = 'deeppink', #Dot color
     s = 40,              #Dot size
-    edgecolor = 'black'  
+    edgecolor = 'crimson'  
 )
 
 #Set axis labels
 ax.set_xlabel('% Workforce in STEM', fontsize = 10, fontname = 'Georgia')
 ax.set_ylabel('GDP per Worker ($USD)', fontsize = 10, fontname = 'Georgia')
 ax.set_zlabel('Urbanization Rate (%)', fontsize = 10, fontname = 'Georgia')
-ax.set_title('GDP Per Worker VS % STEM Workforce vs % Urbanization of U.S. States and CAN Provinces',
+ax.set_title('GDP Per Worker VS % STEM Workforce VS % Urbanization of U.S. States and CAN Provinces',
     fontsize = 12, fontname = 'Georgia', fontweight = 'bold')
 
 #Set ticks and adjust font
