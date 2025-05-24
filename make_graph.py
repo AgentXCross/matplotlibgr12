@@ -68,13 +68,14 @@ def bar_chart(font):
     raw_x_data = input("Enter your categories in bar chart separated by commas: ")
     raw_y_data = input("Enter the corresponding values separated by commas: ")
     x_data = [value.strip() for value in raw_x_data.split(",")]
-    y_data = [value.strip() for value in raw_y_data.split(",")]
+    y_data = [round(float(value.strip()), 2) for value in raw_y_data.split(",")]
     bar_title = input("Enter your bar chart title: ") #Ask for title
     x_axis_label = input("Enter the label for the x-axis: ") #X axis label
     y_axis_label = input("Enter the label for the y-axis: ") #Y axis label
     fill_color = input("Enter the fill color for the bars: ")
     raw_y_ticks = input("Enter the y-ticks separated by commas: ")
     y_ticks = [round(float(tick.strip()), 2) for tick in raw_y_ticks.split(",")]
+    plt.ylim(min(y_ticks), max(y_ticks))
     #Create the chart
     plt.bar(x_data, y_data, color = fill_color)
     plt.xlabel(
@@ -114,6 +115,9 @@ def main():
             pass
         case "Box and Whisker Plot":
             pass
+        case _:
+            print("Error: Please pick one of the valid options.")
+            return
 
 if __name__ =="__main__":
     main()
