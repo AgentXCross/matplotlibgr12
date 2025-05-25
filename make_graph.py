@@ -117,9 +117,26 @@ def pie_chart(font):
         print("Error: The number of x, y values, and colors must match!")
         return
     
-
 def box_and_whisker(font):
-    pass
+    raw_data = input("Enter your data separated by commas: ") #Ask user for data
+    data = [float(num.strip()) for num in raw_data.split(",")]
+    box_title = input("Enter the title of the box-and-whisker plot: ")
+    x_title = input("Enter the x-axis title: ")
+    raw_x_ticks = input("Enter the x-axis tick values: ")
+    x_ticks = [round(float(tick.strip()), 2) for tick in raw_x_ticks.split(",")]
+    color = input("Enter the color of the box-and-whisker plot: ")
+    box = plt.boxplot(data, vert = False, patch_artist = True, widths = 0.6, medianprops = dict(color = 'black')) #Set patchartist to true to color the boxes
+    box['boxes'][0].set_facecolor(color)
+    box['boxes'][0].set_linewidth(2)
+    plt.title(
+        box_title,
+        fontdict = {'fontsize': 13, 'fontweight': 'bold', 'family': font}
+    )
+    plt.xlabel(x_title, fontdict = {'fontsize': 12, 'fontweight': 'medium', 'family': font})
+    plt.xticks(x_ticks, font = font)
+    plt.yticks([]) #Hide y-ticks
+    plt.grid(True)
+    plt.show()
 
 def main():
     type_of_graph = input("Which type of graph would you like to create (Scatter Plot, Bar Chart, Histogram, Pie Chart, Box and Whisker Plot)?: ")
@@ -145,6 +162,7 @@ def main():
         case _:
             print("Error: Please pick one of the valid options.")
             return
+    return
 
 if __name__ =="__main__":
     main()
