@@ -69,6 +69,10 @@ def bar_chart(font):
     raw_y_data = input("Enter the corresponding values separated by commas: ")
     x_data = [value.strip() for value in raw_x_data.split(",")]
     y_data = [round(float(value.strip()), 2) for value in raw_y_data.split(",")]
+    #Check if number of x and y data values match
+    if len(x_data) != len(y_data):
+        print("Error: The number of x and y values must match!")
+        return
     bar_title = input("Enter your bar chart title: ") #Ask for title
     x_axis_label = input("Enter the label for the x-axis: ") #X axis label
     y_axis_label = input("Enter the label for the y-axis: ") #Y axis label
@@ -93,9 +97,32 @@ def bar_chart(font):
     plt.yticks(y_ticks, fontname = font, fontsize = 10)
     plt.show()
 
+def pie_chart(font):
+    raw_x_data = input("Enter your pie chart categories separated by commas: ")
+    raw_y_data = input("Enter the corresponding values separated by commas: ")
+    x_data = [val.strip() for val in raw_x_data.split(",")]
+    y_data = [round(float(val.strip()), 2) for val in raw_y_data.split(",")]
+    pie_title = input("Enter the title of your pie chart: ")
+    raw_colors = input("Enter the colors in corresponding order separated by commas: ")
+    colors = [color.strip() for color in raw_colors.split(",")]
+    #Check if number of x and y data values and colors match
+    if len(x_data) == len(y_data) == len(colors):
+        plt.pie(y_data, labels = x_data, colors = colors, autopct = '%1.1f%%', textprops = {'fontsize': 12, 'fontfamily': font})
+        plt.title(
+            pie_title,
+            fontdict = {'fontsize': 13, 'fontweight': 'bold', 'family': font}
+        )
+        plt.show()
+    else:
+        print("Error: The number of x, y values, and colors must match!")
+        return
+    
+
+def box_and_whisker(font):
+    pass
 
 def main():
-    type_of_graph = input("Which type of graph would you like to create (Scatter Plot, Bar Chart, Histogram)?: ")
+    type_of_graph = input("Which type of graph would you like to create (Scatter Plot, Bar Chart, Histogram, Pie Chart, Box and Whisker Plot)?: ")
     font_input = input("Which font would you like to use (Georgia, Arial, Times New Roman, Futura)?: ")
     fontmap = { #Make sure the user picks a valid font, else default to Georgia
         'Georgia': 'Georgia',
@@ -112,9 +139,9 @@ def main():
         case "Bar Chart":
             bar_chart(font)
         case "Pie Chart":
-            pass
+            pie_chart(font)
         case "Box and Whisker Plot":
-            pass
+            box_and_whisker(font)
         case _:
             print("Error: Please pick one of the valid options.")
             return
