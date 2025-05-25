@@ -62,6 +62,7 @@ def scatter_plot(font):
     plt.yticks(y_ticks, fontname = font, fontsize = 10)
     plt.plot(x_fit, y_fit, color = line_color, linewidth = 2, label = "Line of Best Fit")
     plt.legend(prop = {'family': font, 'size': 10})
+    plt.grid(True)
     plt.show()
 
 def bar_chart(font):
@@ -133,13 +134,13 @@ def box_and_whisker(font):
         fontdict = {'fontsize': 13, 'fontweight': 'bold', 'family': font}
     )
     plt.xlabel(x_title, fontdict = {'fontsize': 12, 'fontweight': 'medium', 'family': font})
-    plt.xticks(x_ticks, font = font)
+    plt.xticks(x_ticks, fontname = font)
     plt.yticks([]) #Hide y-ticks
     plt.grid(True)
     plt.show()
 
 def main():
-    type_of_graph = input("Which type of graph would you like to create (Scatter Plot, Bar Chart, Histogram, Pie Chart, Box and Whisker Plot)?: ")
+    type_of_graph = input("Which type of graph would you like to create (Scatter Plot, Bar Chart, Histogram, Pie Chart, Box and Whisker Plot)?: ").strip().lower()
     font_input = input("Which font would you like to use (Georgia, Arial, Times New Roman, Futura)?: ")
     fontmap = { #Make sure the user picks a valid font, else default to Georgia
         'Georgia': 'Georgia',
@@ -149,15 +150,15 @@ def main():
     }
     font = fontmap.get(font_input.strip(), 'Georgia')
     match type_of_graph:
-        case "Histogram":
+        case "histogram":
             histogram(font)
-        case "Scatter Plot":
+        case "scatter plot":
             scatter_plot(font)
-        case "Bar Chart":
+        case "bar chart":
             bar_chart(font)
-        case "Pie Chart":
+        case "pie chart":
             pie_chart(font)
-        case "Box and Whisker Plot":
+        case "box and whisker plot":
             box_and_whisker(font)
         case _:
             print("Error: Please pick one of the valid options.")

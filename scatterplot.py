@@ -52,5 +52,5 @@ plt.plot(x_fit, y_fit, color = 'crimson', linewidth = 2, label = 'Line of Best F
 
 #Create a legend for the 2 plots (Line of best fit and scatter plot)
 plt.legend(prop = {'family': 'Georgia', 'size': 10})
-
+plt.grid(True)
 plt.show()

@@ -44,7 +44,7 @@ ax.plot(x_e, y_e, color = 'dodgerblue', linewidth = 3, alpha = 0.8, label = 'f(x
 
 #Legend for functions
 ax.legend(loc = 'upper left', fontsize = 10, frameon = False, prop = {'family': 'Georgia'})
-
+plt.grid(True)
 plt.show()
 
 

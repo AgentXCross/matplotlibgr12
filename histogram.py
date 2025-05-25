@@ -39,7 +39,7 @@ match data_set:
 
         plt.xticks(bin_edges, fontname = 'Georgia', fontsize = 10) #Adjust tick font and size
         plt.yticks(fontname = 'Georgia', fontsize = 10)
-
+        
         plt.show()
     case "2":
         bin_edges = [6, 8, 10, 12, 14, 16, 18]

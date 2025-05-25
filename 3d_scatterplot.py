@@ -69,4 +69,5 @@ ax.set_zticks(z_ticks)
 ax.set_zticklabels([str(z) for z in z_ticks], fontname = 'Georgia', fontsize = 10)
 
 plt.tight_layout() #Adjusts spacing
+plt.grid(True)
 plt.show()
